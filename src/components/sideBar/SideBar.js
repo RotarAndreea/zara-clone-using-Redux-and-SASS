@@ -14,7 +14,7 @@ const SideBar = (props) => {
               <li className='pl-1'>BEAUTY</li>
           </ul>
           <ul className='layout-categories-category__subcategory'>
-            <a>SALE</a>
+            <div>SALE</div>
             <ul className='layout-categories-category__subcategory'>
               <li>BEST OF SALES</li>
               <li>BLAZERS</li>

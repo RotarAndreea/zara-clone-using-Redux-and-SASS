@@ -1,5 +1,4 @@
 import { nanoid } from "nanoid";
-import img from './images/dress-1.jpg'
 
 export const dress=[
     {
