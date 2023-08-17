@@ -1,0 +1,124 @@
+.product{
+    display: flex;
+    flex-direction: column;
+    border:1px solid black;
+    height: 100%;
+    //width: calc((100% - var(--line-width) * (var(--grid-num-columns) - 1)) / var(--grid-num-columns));
+    width: 100%;
+
+    @include xs{
+        //margin: $space-xs;
+        
+    }
+    @include sm{
+        //margin: $space-md;
+    }
+    #{&}-image-container{
+        width:100%;
+        display: block;
+        padding-bottom: 130%;
+        max-height: 600px;
+        position: relative;
+    }
+    #{&}-image{
+        width:100%;
+        height:100%;
+        object-fit: cover;
+        position:absolute;
+        //object-position: center;
+    }
+    #{&}-grid-product__add-to-cart{
+        right:0;
+        left:0;
+        bottom:0;
+        width:100%;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+    }
+    #{&}-add-to-cart__button{
+        appearance: none;
+        border: none;
+        outline: none;
+        background:none;
+        
+    }
+
+    #{&}-add-to-cart__button-shade{
+        background-color: rgba(255, 255, 255, 0.4);
+        margin: 12px;
+        border-radius: 50%;
+        height: 25px;
+        width: 25px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    #{&}-add-to-cart__button-icon{
+        height: 9px;
+        width: 9px;
+        fill: black;
+    }
+
+}
+
+.product-info{
+    display:flex;
+    flex-direction: column;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-light;
+
+    @include xs{
+        padding: $space-xs $space-xxs;
+    }
+    @include lg{
+        padding: $space-sm $space-xs;
+    }
+    
+    #{&}__main-info{
+        display: flex;
+        justify-content: space-between;
+        text-transform: uppercase;
+    }
+
+    #{&}__name{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    #{&}__wishlist{
+
+        @include xs{
+            height: 16px;
+            width: 16px;
+        }
+        margin: 0 5px;
+    }
+    #{&}__wishlist-icon{
+
+        @include xs{
+            height: 16px;
+            width: 16px;
+        }
+        @include lg{
+            height: 20px;
+            width: 20px;
+        }
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+
+    #{&}-price{
+        margin:0;
+        margin-top: $space-xxs;
+
+    }
+}

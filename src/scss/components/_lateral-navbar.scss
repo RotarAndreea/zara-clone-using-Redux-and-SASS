@@ -1,0 +1,65 @@
+ 
+.layout-categories{
+    position:absolute;
+    top:0;
+    height: 100%;
+    background-color: rgb(246, 246, 246);
+    display:flex;
+    flex-direction: column;
+    z-index:9999;
+
+    @include xs{
+        width: 100%;
+    }
+    @include md{
+        width: 500px;
+    }
+
+    #{&}__container{
+
+        @include xs{
+            justify-content:center;
+        }
+        @include md{
+            justify-content: flex-start;
+        }
+    };
+    #{&}-category__subcategory{
+        background: rgb(223, 230, 38);
+        overflow: hidden;
+        overflow-y:auto;
+        text-transform: uppercase;
+        font-weight: $font-weight-light;
+        letter-spacing: 0.8px;
+
+        @include xs{
+            justify-content:center;
+            padding:$base-padding;
+        }
+        @include md{
+            justify-content: flex-start;
+            padding:$base-padding*2;
+        }
+
+        li{
+            padding: $space-xs;
+        }
+
+        &::-webkit-scrollbar {
+            width:4px;
+        }
+    
+        &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey; 
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background: #555; 
+        }
+    
+        &::-webkit-scrollbar-thumb:hover {
+            background: #333;
+        } 
+    };
+
+};

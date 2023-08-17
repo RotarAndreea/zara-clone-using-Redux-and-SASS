@@ -1,0 +1,92 @@
+@import '../../scss/abstracts/variables';
+
+%flex-layout{ // % helps to don't generate a class with these values,because we don't need that class; we need just the properties;so just the values will be used
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    box-sizing:border-box;
+
+}
+
+.layout-header{
+    position:sticky;
+    top:0;
+    z-index:90;
+
+
+    @include xs{
+        padding: $space-xs $space-xxs;
+        height: $layout-header-height-xs;
+
+    }
+    @include md{
+        padding: $space-lg $space-xl;
+        height: $layout-header-height;
+    }
+
+    #{&}-main{
+        @extend %flex-layout;
+    }
+
+    #{&}__left{
+        align-items: flex-start;
+        display:flex;
+    }
+
+    
+    #{&}__icon{
+       
+        &:hover{
+            cursor:pointer;
+        }
+    }
+    #{&}__logo-image__container{
+        margin-left: $margin-xxxl;
+        height:$layout-header-logo-height;
+        width: $layout-header-logo-width;
+
+        @include xs{
+            display: none;
+        }
+        @include md{
+            display: block;
+        }
+  
+    }
+    #{&}__logo-icon{
+        height:100%;
+        width:100%;
+        
+        &:hover{
+            cursor:pointer;
+        }
+    }
+    #{&}__logo-container{
+        display:flex;
+    }
+    #{&}__links{
+        display:flex;
+        text-transform: uppercase;
+
+        @include xs{
+            font-size: $font-size-xs;
+        }
+        @include md{
+            font-size: $font-size-sm;
+
+        }
+    }
+    #{&}__link{
+        margin-right:10px;
+        color:black;
+        font-weight: $font-weight-light;
+    }
+}
+
+
+@each $key, $val in $colors{
+    .navbar-#{$key}{
+        @extend .layout-header;
+        background-color: $val;
+    }
+}

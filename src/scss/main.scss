@@ -1,0 +1,27 @@
+//variables & functions
+@import './abstracts/functions';
+@import './abstracts/variables';
+
+//base & layout
+@import './base/base';
+@import './breakpoints';
+@import './grid';
+@import './layout/layout';
+
+//colors
+@import "./colors";
+
+//components(button, card, navbar)
+@import '../components/card';
+@import './components/favorite-item';
+@import '../components/button';
+@import './components/lateral-navbar';
+@import './components/header';
+
+
+//utilities (margin, padding, opacity)
+@import './base/utilities';
+
+//components
+@import './components/cart-item';
+@import './components/product'

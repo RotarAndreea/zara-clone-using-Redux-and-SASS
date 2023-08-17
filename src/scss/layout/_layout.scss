@@ -1,0 +1,223 @@
+.layout{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+
+}
+
+.layout-cart__content{
+    flex:1;
+
+    #{&}-header-buttons-container{
+        position: sticky;
+        position: -webkit-sticky;
+        width: 100%;
+        background-color: white;
+        border-bottom:0.5px solid black;
+        
+        @include xs{
+            top:$layout-header-height-xs;
+        }
+        @include md{
+            top:$layout-header-height;
+        }
+    }
+
+    #{&}-header-buttons{
+        border-top:0.5px solid black;
+        border-right:0.5px solid black;
+        background-color: white;
+        cursor: pointer;     
+
+        @include xs{
+            width: 100%;
+        }
+        @include lg{
+            width: 50%;
+        }
+        
+    }
+    
+    #{&}-grouped-buttons{
+        display: flex;
+        justify-content: center;
+
+        text-transform: uppercase;
+
+        @include xs{
+            font-size: $font-size-xxs;
+        }
+
+        @include md{
+            font-size: $font-size-sm;
+        }
+    }
+
+    #{&}-cart_button{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        padding:$space-xs 0;
+    }
+
+    #{&}-favorite_button{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        border-left:1px solid black;
+        padding:$space-xs 0;
+    }
+}
+
+.layout-shop__no-items{
+    margin-top:$margin-xxs;
+
+    @include xs{
+        margin-left: $margin-xxs;
+    }
+    @include md{
+        margin-left: $margin-xxxl+2;
+    }
+}
+
+
+.layout-shop__content{
+    display: flex;
+    height: 100%;
+    min-height: 560px;
+    //border-top:0.5px solid black;
+
+    @include xs{
+        flex-direction: column;
+
+    }
+    @include md{
+        flex-direction: row;
+    }
+}
+.layout-shop-article{
+    width: 100%;
+    height: 100%;
+}
+.layout-shop-items{
+    width: 100%;
+    height: 100%;
+}
+
+.layout-catalog{
+    max-width: 100%;
+    height: 100%;
+
+    #{&}-content{
+        //get rid of warning
+        width: 100%;
+    }
+}
+
+
+.layout-cart__checkout{
+    display: flex;
+    width: 100%;
+    border-top: 1px solid black;
+    background-color: white;
+    position:absolute;
+    bottom:0;
+    position: fixed;
+    justify-content: flex-end;
+    align-items: center;
+    text-transform: uppercase;
+
+    @include xs{
+        font-size: $font-size-xs;
+    }
+
+    @include md{
+        font-size: $font-size-sm;
+    }
+
+
+    @include xs{
+        height:$layout-cart-footer-height-checkout-xs;
+    }
+    @include md{
+        height:$layout-cart-footer-height-checkout-md;
+    }
+
+    #{&}-order-total-tables__total{
+        display: flex;
+        justify-content: flex-end;
+        
+        @include xs{
+            width: 50%;
+            order:2;
+            padding: $space-xxs ;
+
+        }
+        @include md{
+            width: auto;
+            order:1;
+            padding:0 $space-xxxl;
+
+        }
+        
+    }
+ 
+    #{&}-order-total-tables__total-amount{
+        padding-left:$space-md;
+    }
+
+    #{&}-order-total-tables__continue-container{
+        background-color: rgb(0, 0, 0);
+        color:white;
+        height:100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        @include xs{
+            width:50%;
+            order:1;
+        }
+        @include md{
+            width:auto;
+            order:2;
+            padding:0 $margin-lg;
+        }
+                
+    }
+    #{&}-order-total-tables__continue{
+        color:white;
+
+        @include xs{
+            
+
+        }
+        @include md{
+            
+        }
+                
+    }
+}
+
+.grid-system{
+   display:grid;
+   gap:0.5px;
+   overflow: hidden;
+   height: 100%;
+
+    @include xs{
+        grid-template-columns: repeat(2, 50%);
+    }
+    @include md{
+        grid-template-columns: repeat(4, 25%);
+    }
+    
+}
+
+.grid-column-width{
+    width:calc(((100vw - 2* var(--grid-lateral-margin)) - var(--grid-column-gutter) * 11) / 12)
+}
+
