@@ -1,6 +1,6 @@
 import React from 'react'
 import './styles.scss'
-import DressImg from '../../media/images/zara-dress.jpg'
+import Cover from '../../media/images/zara-cover.png'
 import NavigationLayout from '../../components/NavigationLayout'
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <>
     <div className='cover'>
-        <img className='abs-image' src={DressImg} alt='cover-img'></img>
+        <img className='abs-image' src={Cover} alt='cover-img'></img>
         <NavigationLayout/>
     </div>
     </>

@@ -10,6 +10,14 @@
 .layout-cart__content{
     flex:1;
 
+    @include xs{
+        margin-bottom: $layout-cart-footer-height-checkout-xs;
+
+    }
+    @include md{
+        margin-bottom:$layout-cart-footer-height-checkout-md;
+    }
+
     #{&}-header-buttons-container{
         position: sticky;
         position: -webkit-sticky;
@@ -19,6 +27,7 @@
         
         @include xs{
             top:$layout-header-height-xs;
+
         }
         @include md{
             top:$layout-header-height;

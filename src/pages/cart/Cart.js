@@ -31,7 +31,7 @@ const Cart = () => {
         {...product}
 
     />
-  ))
+  )) 
 
   return (
     <div className='layout'>
