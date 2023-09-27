@@ -19,7 +19,7 @@ export const reducer=(state, action) =>{
                     {
                         ...product,
                         quantity:product.quantity+1
-                    }
+                    } 
                     :
                     product
                 })

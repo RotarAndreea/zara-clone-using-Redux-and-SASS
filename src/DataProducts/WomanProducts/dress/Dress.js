@@ -8,7 +8,19 @@ export const dress=[
         image:require('./images/dress-1.jpg'),
         rating:5,
         stock: 5,
-        isFavorite:false
+        isFavorite:false,
+        sizes:[
+            {size:"xs", quantity:5},
+            {size:"s", quantity:5},
+            {size:"m", quantity:5},
+            {size:"l", quantity:5},
+            {size:"xl", quantity:5},
+        ],
+        colors:[
+            {color:"black", quantity:10},
+            {color:"white", quantity:2},
+            {color:"red", quantity:1},
+        ]
     },
     {
         id: nanoid(),
@@ -17,7 +29,19 @@ export const dress=[
         image:require('./images/dress-2.jpg'),
         rating:4,
         stock: 9,
-        isFavorite:false
+        isFavorite:false,
+        sizes:[
+            {size:"xs", quantity:5},
+            {size:"s", quantity:5},
+            {size:"m", quantity:5},
+            {size:"l", quantity:5},
+            {size:"xl", quantity:5},
+        ],
+        colors:[
+            {color:"black", quantity:10},
+            {color:"white", quantity:2},
+            {color:"red", quantity:1},
+        ]
     },
     {
         id: nanoid(),
@@ -26,7 +50,19 @@ export const dress=[
         image:require('./images/dress-3.jpg'),
         rating:5,
         stock: 12,
-        isFavorite:false
+        isFavorite:false,
+        sizes:[
+            {size:"xs", quantity:5},
+            {size:"s", quantity:5},
+            {size:"m", quantity:5},
+            {size:"l", quantity:5},
+            {size:"xl", quantity:5},
+        ],
+        colors:[
+            {color:"black", quantity:10},
+            {color:"white", quantity:2},
+            {color:"red", quantity:1},
+        ]
     },
     {
         id: nanoid(),
@@ -35,7 +71,19 @@ export const dress=[
         image:require('./images/dress-4.jpg'),
         rating:5,
         stock: 16,
-        isFavorite:false
+        isFavorite:false,
+        sizes:[
+            {size:"xs", quantity:5},
+            {size:"s", quantity:5},
+            {size:"m", quantity:5},
+            {size:"l", quantity:5},
+            {size:"xl", quantity:5},
+        ],
+        colors:[
+            {color:"black", quantity:10},
+            {color:"white", quantity:2},
+            {color:"red", quantity:1},
+        ]
     },
     {
         id: nanoid(),
@@ -44,7 +92,19 @@ export const dress=[
         image:require('./images/dress-5.jpg'),
         rating:5,
         stock: 14,
-        isFavorite:false
+        isFavorite:false,
+        sizes:[
+            {size:"xs", quantity:5},
+            {size:"s", quantity:5},
+            {size:"m", quantity:5},
+            {size:"l", quantity:5},
+            {size:"xl", quantity:5},
+        ],
+        colors:[
+            {color:"black", quantity:10},
+            {color:"white", quantity:2},
+            {color:"red", quantity:1},
+        ]
     },
     {
         id: nanoid(),
@@ -53,7 +113,19 @@ export const dress=[
         image:require('./images/dress-6.jpg'),
         rating:4,
         stock: 10,
-        isFavorite:false
+        isFavorite:false,
+        sizes:[
+            {size:"xs", quantity:5},
+            {size:"s", quantity:5},
+            {size:"m", quantity:5},
+            {size:"l", quantity:5},
+            {size:"xl", quantity:5},
+        ],
+        colors:[
+            {color:"black", quantity:10},
+            {color:"white", quantity:2},
+            {color:"red", quantity:1},
+        ]
     },
     {
         id: nanoid(),
@@ -62,7 +134,19 @@ export const dress=[
         image:require('./images/dress-7.jpg'),
         rating:5,
         stock: 20,
-        isFavorite:false
+        isFavorite:false,
+        sizes:[
+            {size:"xs", quantity:5},
+            {size:"s", quantity:5},
+            {size:"m", quantity:5},
+            {size:"l", quantity:5},
+            {size:"xl", quantity:5},
+        ],
+        colors:[
+            {color:"black", quantity:10},
+            {color:"white", quantity:2},
+            {color:"red", quantity:1},
+        ]
     },
     {
         id: nanoid(),
@@ -71,7 +155,19 @@ export const dress=[
         image:require('./images/dress-8.jpg'),
         rating:5,
         stock: 18,
-        isFavorite:false
+        isFavorite:false,
+        sizes:[
+            {size:"xs", quantity:5},
+            {size:"s", quantity:5},
+            {size:"m", quantity:5},
+            {size:"l", quantity:5},
+            {size:"xl", quantity:5},
+        ],
+        colors:[
+            {color:"black", quantity:10},
+            {color:"white", quantity:2},
+            {color:"red", quantity:1},
+        ]
     },
     {
         id: nanoid(),
@@ -80,7 +176,19 @@ export const dress=[
         image:require('./images/dress-9.jpg'),
         rating:4,
         stock: 7,
-        isFavorite:false
+        isFavorite:false,
+        sizes:[
+            {size:"xs", quantity:5},
+            {size:"s", quantity:5},
+            {size:"m", quantity:5},
+            {size:"l", quantity:5},
+            {size:"xl", quantity:5},
+        ],
+        colors:[
+            {color:"black", quantity:10},
+            {color:"white", quantity:2},
+            {color:"red", quantity:1},
+        ]
     },
     {
         id: nanoid(),
@@ -89,6 +197,18 @@ export const dress=[
         image:require('./images/dress-10.jpg'),
         rating:3,
         stock: 7,
-        isFavorite:false
+        isFavorite:false,
+        sizes:[
+            {size:"xs", quantity:5},
+            {size:"s", quantity:5},
+            {size:"m", quantity:5},
+            {size:"l", quantity:5},
+            {size:"xl", quantity:5},
+        ],
+        colors:[
+            {color:"black", quantity:10},
+            {color:"white", quantity:2},
+            {color:"red", quantity:1},
+        ]
     },
 ]
