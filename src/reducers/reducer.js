@@ -49,6 +49,7 @@ export const reducer=(state, action) =>{
             let newBasket=[...state.basket];
             if(index>=0){
                 newBasket.splice(index,1);
+                localStorage.setItem('basket',JSON.stringify(newBasket));
             }else
             {
                 console.warn(`Can't remove product (id: ${action.id}) as it is not in basket!`)
@@ -67,16 +68,21 @@ export const reducer=(state, action) =>{
                 :
                 product
             })
+            localStorage.setItem('basket',JSON.stringify(updatedQuantity))
             return {...state,basket:updatedQuantity}
+
         case "ADD_TO_FAVORITE":
         //    let existsFavoriteItem=state.favoriteItems.findIndex( //will find just the first element that has the same id as the other products
           //          (favoriteItem)=>favoriteItem.id===action.item.id
           //      )
          //   if(existsFavoriteItem<0){
-                return {
-                        ...state,
-                        favoriteItems: [...state.favoriteItems, action.item] //the basket will be the initial value plus the new values returned from action.item
-                }
+            const updatedFavorite=[...state.favoriteItems, action.item];
+            localStorage.setItem('favoriteItems',JSON.stringify(updatedFavorite))
+            
+            return {
+                    ...state,
+                    favoriteItems: [...state.favoriteItems, action.item] //the basket will be the initial value plus the new values returned from action.item
+            }
         //    }
          //   else return state
 
@@ -87,6 +93,8 @@ export const reducer=(state, action) =>{
                 let newFavorites=[...state.favoriteItems];
                 if(favoriteItemIndex>=0){
                     newFavorites.splice(favoriteItemIndex,1);
+                    localStorage.setItem('favoriteItems',JSON.stringify(newFavorites))
+
                 }else
                 {
                     console.warn(`Can't remove product (id: ${action.id}) as it is not in basket!`)
