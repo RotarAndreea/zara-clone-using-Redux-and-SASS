@@ -2,8 +2,16 @@
 
 //create the initial state
 export const initialState={
-    basket:[],
-    favoriteItems:[]
+    basket:localStorage.getItem('basket')
+    ?
+    JSON.parse(localStorage.getItem('basket'))
+    :
+    [],
+    favoriteItems:localStorage.getItem('favoriteItems')
+    ?
+    JSON.parse(localStorage.getItem('favoriteItems'))
+    :
+    []
 }
 
 //a reducer is how we are able to dispatch this action(add to basket) into the data layout
@@ -23,9 +31,12 @@ export const reducer=(state, action) =>{
                     :
                     product
                 })
+                localStorage.setItem('basket',JSON.stringify(updatedBasket))
                 return {...state,basket:updatedBasket}
                 
             }else {
+                const newBasket=[...state.basket, action.item];
+                localStorage.setItem('basket',JSON.stringify(newBasket))
                 return {
                     ...state,
                     basket: [...state.basket, action.item] //the basket will be the initial value plus the new values returned from action.item

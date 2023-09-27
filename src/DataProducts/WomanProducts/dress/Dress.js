@@ -1,8 +1,7 @@
-import { nanoid } from "nanoid";
 
 export const dress=[
     {
-        id: nanoid(),
+        id: 1,
         title:'Floral dress with red details and soft material',
         price: 20.99,
         image:require('./images/dress-1.jpg'),
@@ -23,7 +22,7 @@ export const dress=[
         ]
     },
     {
-        id: nanoid(),
+        id: 2,
         title:'Simple dress in green',
         price: 76,
         image:require('./images/dress-2.jpg'),
@@ -44,7 +43,7 @@ export const dress=[
         ]
     },
     {
-        id: nanoid(),
+        id: 3,
         title:'Organza dress',
         price: 46.99,
         image:require('./images/dress-3.jpg'),
@@ -65,7 +64,7 @@ export const dress=[
         ]
     },
     {
-        id: nanoid(),
+        id: 4,
         title:'A dress with pink details',
         price: 100,
         image:require('./images/dress-4.jpg'),
@@ -86,7 +85,7 @@ export const dress=[
         ]
     },
     {
-        id: nanoid(),
+        id: 5,
         title:'Limited edition long dress',
         price: 132,
         image:require('./images/dress-5.jpg'),
@@ -107,7 +106,7 @@ export const dress=[
         ]
     },
     {
-        id: nanoid(),
+        id: 6,
         title:'Straight dress in purple',
         price: 78,
         image:require('./images/dress-6.jpg'),
@@ -128,7 +127,7 @@ export const dress=[
         ]
     },
     {
-        id: nanoid(),
+        id: 7,
         title:'Black dress with details',
         price: 45,
         image:require('./images/dress-7.jpg'),
@@ -149,7 +148,7 @@ export const dress=[
         ]
     },
     {
-        id: nanoid(),
+        id: 8,
         title:'Floral dress with soft material',
         price: 35,
         image:require('./images/dress-8.jpg'),
@@ -170,7 +169,7 @@ export const dress=[
         ]
     },
     {
-        id: nanoid(),
+        id: 9,
         title:'Animal print dress',
         price: 66,
         image:require('./images/dress-9.jpg'),
@@ -191,7 +190,7 @@ export const dress=[
         ]
     },
     {
-        id: nanoid(),
+        id: 10,
         title:'Velvet dress',
         price: 87,
         image:require('./images/dress-10.jpg'),
