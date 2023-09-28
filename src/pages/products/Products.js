@@ -1,5 +1,5 @@
 import React from 'react'
-import Product from '../../components/Product'
+import Product from '../../components/product/Product'
 import NavigationLayout from '../../components/NavigationLayout'
 import {dress} from '../../DataProducts/WomanProducts/dress/Dress'
 
@@ -14,6 +14,7 @@ const Products = () => {
         image={product.image}
         stock={product.stock}
         isFavorite={product.isFavorite}
+        sizes={product.sizes}
     />
   ))
 

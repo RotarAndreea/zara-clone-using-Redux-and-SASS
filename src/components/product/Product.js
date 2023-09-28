@@ -1,10 +1,11 @@
-import React from 'react'
-import { useStateValue } from '../StateProvider'
+import React, { useState } from 'react'
+import { useStateValue } from '../../StateProvider'
 import SaveButton from './SaveButton';
+import SizeTable from './SizeTable';
 
-const Product = ({id, title, image, price, rating, stock,isFavorite,quantity}) => {
+const Product = ({id, title, image, price, rating, stock,isFavorite,quantity,sizes}) => {
     const [state, dispatch] = useStateValue(); //state will be the array with all the products(equal to {basket})
-    
+    const [showSizes, setShowSizes]=useState(false);
     const isProductFavorite=state.favoriteItems.findIndex( //will find just the first element that has the same id as the other products
 (searchedFavoriteItem)=>searchedFavoriteItem.id===id
 )
@@ -60,7 +61,9 @@ const Product = ({id, title, image, price, rating, stock,isFavorite,quantity}) =
             },
         })
     }
-
+    const hideSizeTable=()=>{
+        setShowSizes(false);
+    }
     
 
   return (
@@ -68,11 +71,18 @@ const Product = ({id, title, image, price, rating, stock,isFavorite,quantity}) =
         <div className='product-image-container'>
             <img className='product-image' src={image} alt="product-img" />
             <div className='product-grid-product__add-to-cart'>
-                <button className='product-add-to-cart__button' onClick={addToBasket}>
+                <button className='product-add-to-cart__button' 
+                        onClick={()=>setShowSizes(true)}
+                        style={{display: showSizes ? 'none' : 'block'}}
+                >
                     <div className='product-add-to-cart__button-shade'>
                         <svg className="product-add-to-cart__button-icon" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 3.505V.255h-.5v3.25H.25v.5H3.5v3.25H4v-3.25h3.25v-.5H4z"></path></svg>                    
                     </div>
                 </button>
+                <SizeTable id={id} title={title} image={image} price={price} rating={rating} stock={stock} isFavorite={isFavorite} quantity={quantity} sizes={sizes}
+                           showSizes={showSizes}
+                           hideSizeTable={hideSizeTable}  
+                />
             </div>
         </div>
         
@@ -81,7 +91,7 @@ const Product = ({id, title, image, price, rating, stock,isFavorite,quantity}) =
             <div className='product-info__main-info'>
                 <div className='product-info__name'>{title}</div>
                 <div className='product-info__wishlist'>
-                    <SaveButton handleClick={handleClick}  isProductFavorite={isProductFavorite}/>
+                    <SaveButton handleClick={handleClick} isProductFavorite={isProductFavorite}/>
                 </div>
             </div>
             <p className='product-info-price'>

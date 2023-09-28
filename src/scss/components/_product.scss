@@ -37,6 +37,7 @@
         position: absolute;
     }
     #{&}-add-to-cart__button{
+        display:none;
         appearance: none;
         border: none;
         outline: none;
@@ -63,6 +64,42 @@
         height: 9px;
         width: 9px;
         fill: black;
+    }
+
+}
+
+
+.product-size{
+    width:100%;
+    height:100%;
+    background:white;
+    position:relative;
+
+
+    #{&}-grid{
+        height: 100%;
+        display: grid;
+        grid-template-rows: auto auto auto;
+        grid-template-columns: auto auto;
+        border-bottom:1px solid black;
+        border-top:1px solid black;
+
+    }
+    #{&}-box{
+        text-align: center;
+
+        &:hover{
+            background-color: rgba(59, 47, 47, 0.3);
+            cursor: pointer;
+        }
+    }
+    #{&}-border_right{
+        border-right: 1px solid black;
+
+    }
+    #{&}-border_bottom{
+        border-bottom:1px solid black;
+
     }
 
 }

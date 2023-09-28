@@ -1,8 +1,9 @@
 import React from 'react'
 import { useStateValue } from '../../StateProvider';
 
-const BasketItem = ({id, title, image, price, rating,quantity ,stock}) => {
-    const [_, dispatch] =useStateValue() ; //eslint-disable-line no-unused-vars
+const BasketItem = ({id, title, image, price, rating,quantity ,stock, size}) => {
+    const [state, dispatch] =useStateValue() ; //eslint-disable-line no-unused-vars
+    //const [_, dispatch] =useStateValue() ; //eslint-disable-line no-unused-vars
 
     const removeFromBasket=()=>{
         //remove the item from the basket
@@ -34,7 +35,7 @@ const BasketItem = ({id, title, image, price, rating,quantity ,stock}) => {
                     <div className='shop-cart-item__information'>
                         <div className='shop-cart-item__price'>${price}</div>
                         <div className='shop-cart-item-base'>
-                            <span className='shop-cart-item-base__size' >S</span>
+                            <span className='shop-cart-item-base__size' >{size}</span>
                             <span className='shop-cart-item-base__color' >BLACK</span>
                         </div>
                         
