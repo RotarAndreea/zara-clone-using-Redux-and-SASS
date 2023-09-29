@@ -31,8 +31,8 @@ export const dress=[
             {size:"xs", quantity:10},
             {size:"s", quantity:12},
             {size:"m", quantity:8},
-            {size:"l", quantity:7},
-            {size:"xl", quantity:5},
+            {size:"l", quantity:0},
+            {size:"xl", quantity:0},
         ],
         colors:[
             {color:"black", quantity:10},
@@ -49,10 +49,10 @@ export const dress=[
         stock: 12,
         isFavorite:false,
         sizes:[
-            {size:"xs", quantity:2},
-            {size:"s", quantity:6},
-            {size:"m", quantity:14},
-            {size:"l", quantity:20},
+            {size:"xs", quantity:0},
+            {size:"s", quantity:0},
+            {size:"m", quantity:5},
+            {size:"l", quantity:3},
         ],
         colors:[
             {color:"black", quantity:10},
@@ -71,7 +71,7 @@ export const dress=[
         sizes:[
             {size:"s", quantity:4},
             {size:"m", quantity:9},
-            {size:"l", quantity:10},
+            {size:"l", quantity:0},
             {size:"xl", quantity:7},
         ],
         colors:[
@@ -93,8 +93,8 @@ export const dress=[
             {size:"s", quantity:6},
             {size:"m", quantity:9},
             {size:"l", quantity:5},
-            {size:"xl", quantity:11},
-            {size:"xxl", quantity:19},
+            {size:"xl", quantity:0},
+            {size:"xxl", quantity:0},
         ],
         colors:[
             {color:"black", quantity:10},

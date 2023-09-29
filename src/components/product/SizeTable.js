@@ -8,7 +8,10 @@ const SizeTable = ({id, title, image, price, rating, stock,isFavorite,quantity,s
     <div  
         className='product-size-box' 
         onClick={()=>addToBasket(size.size,size.quantity)}
-        style={{opacity: size.quantity ? 'none' : 0.2}}
+        style={{color: size.quantity ? 'black' : 'grey',
+                pointerEvents: !size.quantity && 'none'
+                
+        }}
         key={size.size}
     >
         {size.size}
