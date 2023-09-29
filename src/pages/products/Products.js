@@ -2,7 +2,6 @@ import React from 'react'
 import Product from '../../components/product/Product'
 import NavigationLayout from '../../components/NavigationLayout'
 import {dress} from '../../DataProducts/WomanProducts/dress/Dress'
-import { nanoid } from 'nanoid'
 
 const Products = () => {
 
