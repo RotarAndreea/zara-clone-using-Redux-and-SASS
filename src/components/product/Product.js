@@ -18,23 +18,6 @@ const Product = ({id, title, image, price, rating, stock,isFavorite,quantity,siz
             
     }
 
-    const addToBasket=()=>{
-        //dispatch the item into the data layer
-        dispatch({
-            type: 'ADD_TO_BASKET',
-            item:{
-                id:id,
-                title:title,
-                image:image,
-                price:price,
-                rating:rating,
-                stock:stock,
-                isFavorite:isFavorite,
-                quantity:1
-            },
-        })
-    }
-
     const addToFavorite=()=>{
         //dispatch the item into the data layer
         dispatch({

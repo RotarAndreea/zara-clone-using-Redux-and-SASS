@@ -19,11 +19,11 @@ export const reducer=(state, action) =>{
     switch(action.type){
         case "ADD_TO_BASKET":
             const quantityNumber=state.basket.findIndex( //will find just the first element that has the same id as the other products
-                (BasketItem)=>BasketItem.id===action.item.id
+                (BasketItem)=>BasketItem.id === action.item.id && BasketItem.size === action.item.size
             )
             if(quantityNumber>=0){
                 const updatedBasket= state.basket.map((product)=>{
-                    return product.id === action.item.id ?
+                    return product.id === action.item.id && product.size === action.item.size ?
                     {
                         ...product,
                         quantity:product.quantity+1
@@ -60,7 +60,7 @@ export const reducer=(state, action) =>{
             }
         case "CHANGE_PRODUCT_QUANTITY":
             const updatedQuantity= state.basket.map((product)=>{
-                return product.id === action.item.id ?
+                return product.id === action.item.id && product.size === action.item.size  ?
                 {
                     ...product,
                     quantity:action.item.quantity

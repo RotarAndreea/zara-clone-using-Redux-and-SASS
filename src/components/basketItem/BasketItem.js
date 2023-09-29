@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStateValue } from '../../StateProvider';
 
-const BasketItem = ({id, title, image, price, rating,quantity ,stock, size}) => {
+const BasketItem = ({id, title, image, price, quantity, size, totalQuantity}) => {
     const [state, dispatch] =useStateValue() ; //eslint-disable-line no-unused-vars
     //const [_, dispatch] =useStateValue() ; //eslint-disable-line no-unused-vars
 
@@ -19,6 +19,7 @@ const BasketItem = ({id, title, image, price, rating,quantity ,stock, size}) => 
             type: 'CHANGE_PRODUCT_QUANTITY',
             item:{
                 id:id,
+                size:size,
                 quantity:parseInt(event.target.value)
             }
         })
@@ -51,7 +52,7 @@ const BasketItem = ({id, title, image, price, rating,quantity ,stock, size}) => 
                                 id="quantity"
                                 onChange={changeProductQuantity}
                             >
-                                {Array(stock)
+                                {Array(totalQuantity)
                                     .fill()
                                     .map((_, i) =>(
                                     <option key={i+1} value={i+1}>{i+1}</option>
