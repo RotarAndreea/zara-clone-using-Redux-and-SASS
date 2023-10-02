@@ -30,7 +30,8 @@ const Product = ({id, title, image, price, rating, stock,isFavorite,quantity,siz
                 rating:rating,
                 stock:stock,
                 isFavorite:true,
-                quantity:quantity
+                quantity:quantity,
+                sizes:sizes
             },
         })
     }

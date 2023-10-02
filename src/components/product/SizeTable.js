@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStateValue } from '../../StateProvider';
 
-const SizeTable = ({id, title, image, price, rating, stock,isFavorite,quantity,sizes,showSizes, hideSizeTable}) => {
+const SizeTable = ({id, title, image, price, rating, isFavorite,sizes,showSizes, hideSizeTable}) => {
   const [state, dispatch] = useStateValue(); //state will be the array with all the products(equal to {basket})
 
   const currentSize=sizes.map(size=>(
@@ -36,7 +36,6 @@ const SizeTable = ({id, title, image, price, rating, stock,isFavorite,quantity,s
               image:image,
               price:price,
               rating:rating,
-              stock:stock,
               isFavorite:isFavorite,
               quantity:1, // the quantity that should be added to cart
               size:size,

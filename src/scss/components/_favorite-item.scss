@@ -31,7 +31,6 @@
     #{&}__details-content{
         font-size: $font-size-sm;
         text-transform: uppercase;
-        font-weight: $font-weight-light;
         width: 100%;
 
 
@@ -40,6 +39,7 @@
     #{&}__details{
         display: flex;
         flex-direction: column;
+        font-weight: $font-weight-light;
         padding:$space-xxs $space-xs;        
         
         & > *{
@@ -50,6 +50,7 @@
     #{&}__main-details{
         display: flex;
         justify-content: space-between;
+        
 
     }
 
@@ -73,12 +74,13 @@
     #{&}__information{
        display: flex;
        justify-content: space-between;
-       
     }
     #{&}-actions{
         border-top:0.5px solid black;
         cursor: pointer;
         padding: $space-xxs 0;
+        user-select: none;
+        font-weight: $font-weight-light;
 
-    }      
+    }        
 }

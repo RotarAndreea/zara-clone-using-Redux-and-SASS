@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useStateValue } from '../../StateProvider';
+import SizeTable from '../product/SizeTable';
 
-const FavoriteItem = ({id, title, image, price, rating,quantity ,stock,isFavorite}) => {
+const FavoriteItem = ({id, title, image, price, rating,stock,isFavorite,quantity,sizes}) => {
     const [_, dispatch] =useStateValue() ; //eslint-disable-line no-unused-vars
+    const [showSizes, setShowSizes]=useState(false);
 
     const removeFromFavorite=()=>{
         //dispatch the item into the data layer
@@ -14,26 +16,9 @@ const FavoriteItem = ({id, title, image, price, rating,quantity ,stock,isFavorit
             },
         })
     }
-    const addToBasket=()=>{
-        //dispatch the item into the data layer
-        dispatch({
-            type: 'ADD_TO_BASKET',
-            item:{
-                id:id,
-                title:title,
-                image:image,
-                price:price,
-                rating:rating,
-                stock:stock,
-                isFavorite:isFavorite,
-                quantity:1
-            },
-        })
-    }
 
-    const updateFavoriteList=()=>{
-        addToBasket();
-        removeFromFavorite();
+    const hideSizeTable=()=>{
+        setShowSizes(false);
     }
 
   return (
@@ -56,10 +41,15 @@ const FavoriteItem = ({id, title, image, price, rating,quantity ,stock,isFavorit
                     
                 </div>
                 <div className='favorite-item-actions row justify-center'
-                     onClick={updateFavoriteList}
+                     onClick={()=>setShowSizes(true)}
+                     style={{display: showSizes ? 'none' : 'flex'}}
                 >
-                        <div> add </div>
+                        <div> add  </div>
                 </div>
+                <SizeTable id={id} title={title} image={image} price={price} rating={rating} stock={stock} isFavorite={isFavorite} quantity={quantity} sizes={sizes}
+                           showSizes={showSizes}
+                           hideSizeTable={hideSizeTable}
+                />
             </div>
             
         </div>

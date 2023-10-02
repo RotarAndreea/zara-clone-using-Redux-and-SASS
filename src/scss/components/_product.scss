@@ -90,6 +90,9 @@
     }
     #{&}-box{
         text-align: center;
+        font-size: $font-size-sm;
+        text-transform: uppercase;
+        user-select: none;
 
         &:hover{
             background-color: rgba(59, 47, 47, 0.3);
