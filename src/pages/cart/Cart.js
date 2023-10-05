@@ -3,10 +3,11 @@ import { useStateValue } from '../../StateProvider';
 import BasketItem from '../../components/basketItem/BasketItem';
 import FavoriteItem from '../../components/favoriteItem/FavoriteItem';
 import NavigationLayout from '../../components/NavigationLayout';
+import { Link } from 'react-router-dom';
  
 const Cart = () => {
   const [state]=useStateValue();
-  const [showCartItems, setShowCartItems]=useState(true);
+  const [showCartItems, setShowCartItems]=useState(true); //toggle between favorite list and cart items
   const whiteBackground=true;
 
   const sum=state.basket?.reduce((total,product)=>{
@@ -92,7 +93,7 @@ const Cart = () => {
           </div>
 
         </div>
-        {showCartItems &&
+        {showCartItems & state.basket.length >0 &&
           <div className='layout-cart__checkout'>
             <div className='layout-cart__checkout-order-total-tables__total'>
                 <span className='layout-cart__checkout-order-total-tables__total-name'>
@@ -103,10 +104,8 @@ const Cart = () => {
                 </span>
             </div>
             
-            <div className='layout-cart__checkout-order-total-tables__continue-container'>
-                      <div className='layout-cart__checkout-order-total-tables__continue'>
-                        Continue
-                      </div>
+            <div className='layout-cart__checkout-order-total-tables__continue-container'> 
+                      <Link className='layout-cart__checkout-order-total-tables__continue' to="/checkout">Continue </Link>
             </div>
           
           </div>
