@@ -34,7 +34,7 @@ const BasketItem = ({id, title, image, price, quantity, size, totalQuantity}) =>
                 <div className='shop-cart-item__details'>
                     <div className='shop-cart-item__name'>{title}</div>
                     <div className='shop-cart-item__information'>
-                        <div className='shop-cart-item__price'>${price}</div>
+                        <div className='shop-cart-item__price'>€{price}</div>
                         <div className='shop-cart-item-base'>
                             <span className='shop-cart-item-base__size' >{size}</span>
                             <span className='shop-cart-item-base__color' >BLACK</span>

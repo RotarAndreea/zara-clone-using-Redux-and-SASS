@@ -81,7 +81,7 @@ const Product = ({id, title, image, price, rating, stock,isFavorite,quantity,siz
             <p className='product-info-price'>
                 <span className='price-amount'>
                     <span className='price-current__amount'>
-                        <span>${price}</span>
+                        <span>€{price}</span>
                     </span>
                 </span>
             </p>
