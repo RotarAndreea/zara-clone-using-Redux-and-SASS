@@ -1,6 +1,18 @@
 import React from 'react'
 
 const OrderDetails = (props) => {
+
+    const product=props.formData.productsDetails.map(product=>(
+        <ul className='order-details__grid-products order-details__grid-products__product-design'>
+            <li>
+                <img className="checkout-form__media-image"  src={product.image} alt={`${product.title}`} />
+            </li>
+            <li>{product.title}</li>
+            <li>{product.size}</li>
+            <li>{product.quantity}</li>
+            <li>{product.price} eur</li>
+        </ul>
+    ))
   return (
     <>
         <div className='layout-checkout-margins_left-right order-details' >
@@ -25,24 +37,7 @@ const OrderDetails = (props) => {
                     <li>Amount</li>
                 </ul>
                 <div className='order-details-products__table'>
-                    <ul className='order-details__grid-products order-details__grid-products__product-design'>
-                        <li>
-                            <img className="checkout-form__media-image"  src={props.formData.productsDetails[0].image} alt={`${props.formData.productsDetails[0].title}`} />
-                        </li>
-                        <li>{props.formData.productsDetails[0].title}</li>
-                        <li>{props.formData.productsDetails[0].size}</li>
-                        <li>{props.formData.productsDetails[0].quantity}</li>
-                        <li>{props.formData.productsDetails[0].price}</li>
-                    </ul>
-                    <ul className='order-details__grid-products order-details__grid-products__product-design'>
-                        <li>
-                            <img className="checkout-form__media-image"  src={props.formData.productsDetails[0].image} alt={`${props.formData.productsDetails[0].title}`} />
-                        </li>
-                        <li>{props.formData.productsDetails[0].title}</li>
-                        <li>{props.formData.productsDetails[0].size}</li>
-                        <li>{props.formData.productsDetails[0].quantity}</li>
-                        <li>{props.formData.productsDetails[0].price}</li>
-                    </ul>
+                    {product}
                 </div>
             </div>
         </div>
