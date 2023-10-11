@@ -2,34 +2,52 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import ZaraImage from '../../media/images/zaraBlack.png'
 import { useStateValue } from '../../StateProvider';
+import LateralBox from './LateralBox';
+import OrderDetails from './OrderDetails';
 
 const CheckOut = () => {
-    const [{basket}] =useStateValue() ; //eslint-disable-line no-unused-vars
+    const [state] =useStateValue() ; 
     const [deliveryMethod, setDeliveryMethod]=useState('home-delivery');
     const [showLateralBar, setShowLateralBar]=useState(false);
+    const [showOrderDetails, setShowOrderDetails]=useState(false);
+    const [actualAddressId, setActualAddressId]=useState(state.addressInfo.length >0 ? state.addressInfo[0].id : 0);
+    const addressObject=[...state.addressInfo];
+    const actualAddress=actualAddressId !==0 && findCurrentAddress(actualAddressId);
+
+    const totalSum=state.basket?.reduce((total,product)=>{
+        return total+product.price*product.quantity;
+      },0) // 0 is for the initial value of "total" variable
+
+      const totalProducts=state.basket?.reduce((total,product)=>{
+        return total+product.quantity;
+      },0)
 
     const [formData, setFormData]=React.useState({
-        email:"",
-        deliveryPlace:'home-delivery',
-        address:'',
-        numberOfArticles:basket.length,
-        totalSum:'',
-        productsDetails:{basket},
-        shippingMethod: 'normal-delivery'
+        numberOfArticles:totalProducts,
+        totalSum:totalSum.toFixed(2),
+        productsDetails:state.basket,
+        shippingMethod: 'standard-delivery'
     })
 
-    function handleChange(event){
-        const {name,value}=event.target
-            setFormData(prevData=>{
-                return{
-                    ...prevData,
-                    [name]: value  //event.target.name:event.target.value ; pun in setUseState valoarea(textul)
-                }
-            })
-            console.log(formData)
+
+    function findCurrentAddress(id){ //return the current address as an object
+        let currentAddressIndex=addressObject.findIndex( //will find just the first element that has the same id as the other products
+                    (address)=>address.id===id
+        );
+        return {
+            state:addressObject[currentAddressIndex].state,
+            city:addressObject[currentAddressIndex].city,
+            address:addressObject[currentAddressIndex].address
+        }
+    }   
+    
+
+    function handleCurrentAddressId(id){
+        setActualAddressId(id);
+        setShowLateralBar(false);
       }
 
-    const product=basket.map(cartProduct=>(
+    const product=state.basket.map(cartProduct=>(
         <div className='checkout-form__carousel-item'
              key={cartProduct.key}
         >
@@ -39,9 +57,19 @@ const CheckOut = () => {
         </div>
     ))
 
+    const onChangeChecked=(event) =>{
+        const {name,value}=event.target
+            setFormData(prevData=>{
+                return{
+                    ...prevData,
+                    [name]: value  //event.target.name:event.target.value ; pun in setUseState valoarea(textul)
+                }
+            })
+    }
+
   return (
     <>
-        <div className='layout'>
+        <div className='layout layout-cart__content'>
             <header className='layout-header'>
                 <div className='layout-header-main'>
                     <div className='layout-header__left'>
@@ -60,6 +88,8 @@ const CheckOut = () => {
                     </div>
                 </div>
             </header>
+
+            {!showOrderDetails ? 
             <div className='checkout-content layout-checkout-margins_left-right'>
                 <div className='checkout-content-header__info'>Where would you like to receive the order ?</div>
 
@@ -96,23 +126,24 @@ const CheckOut = () => {
                     </div>
 
                     <div className='checkout-content-delivery-group__address'>
-                           <div>Strada Calea Principala 232</div> 
+                            { actualAddressId !==0 ? 
+                                <>
+                                    <div>{actualAddress.state}</div> 
+                                    <div>{actualAddress.city}</div> 
+                                    <div>{actualAddress.address}</div> 
+                                </>
+                                : 
+                                <div>'Please enter an address'</div>
+                            } 
                            <div className='checkout-content-delivery-group__address-modify'
                                 onClick={()=>setShowLateralBar(true)}
                            >Modify</div>
-                           <div className='full-area' style={{display: showLateralBar ? 'flex' : 'none'}}>
-                                <div className='full-area-hidden'/>
-                                <div className='lateral-box'>
-                                    <div onClick={()=>setShowLateralBar(false)} className='lateral-box__close-button'>X</div>
-                                    <div className='lateral-box__title'>selectati locul livrarii</div>
-                                    <div className='lateral-box__address-container'>
-
-                                    </div>
-                                    <div className='lateral-box__add-address'>
-                                        add a new address
-                                    </div>
-                                </div>
-                           </div>
+                           <LateralBox showLateralBar={showLateralBar} 
+                                       handleShowLateralBar={setShowLateralBar} 
+                                       handleCurrentAddressId={handleCurrentAddressId}
+                                       actualAddressId={actualAddressId}
+                                       changeActualAddressId={setActualAddressId}
+                           />
                            
                     </div>
 
@@ -128,33 +159,35 @@ const CheckOut = () => {
 
                             </div>
                         </div>
+
                         <div className='checkout-form__options'>
                                 <div className='checkout-form__option'>
                                     <div className='checkout-form__option-delivery-details'>
                                         <label className='radius-button__container'>
                                             Thursday 05, OCTOBER
                                             <input type="checkbox"
-                                                   checked={formData.checked}
-                                                   onChange={handleChange}
+                                                   checked={formData.shippingMethod === 'standard-delivery'}
+                                                   onChange={(event)=>onChangeChecked(event)}
                                                    name="shippingMethod"
                                                    value='standard-delivery'
 
                                             />
                                             <span className='checkmark'></span>
                                         </label>
-                                        <div>free</div>
+                                        <div>{formData.totalSum > 40 ? 'free':'4.99 eur'}</div>
                                     </div>
                                     <div className='checkout-form__option-delivery-text'>
-                                        Expediere gratuită începând cu 230 LEI pentru articolele fără reducere
+                                        Free shipping starting from 40 euros for items without discounts
                                     </div>
                                 </div>
+
                                 <div className='checkout-form__option'>
                                     <div className='checkout-form__option-delivery-details'>
                                             <label className='radius-button__container'>
                                                 Friday 06, OCTOBER
                                                 <input type="checkbox" 
-                                                       checked={formData.checked}
-                                                       onChange={handleChange}
+                                                       checked={formData.shippingMethod === 'urgent-delivery'}
+                                                       onChange={(event)=>onChangeChecked(event)}
                                                        value='urgent-delivery'
                                                        name="shippingMethod"
                                                 />
@@ -166,8 +199,33 @@ const CheckOut = () => {
                         </div>
                     </div>
                 </div>
-            </div>              
+                <button onClick={()=>console.log(
+                `delivery: ${deliveryMethod} address:..
+                articles: ${totalProducts} totalSum: ${totalSum}`
+                )}>Confirm order</button>
+            </div>
+            :
+            <OrderDetails formData={formData} actualAddress={actualAddress} deliveryMethod={deliveryMethod}/>
+            }
         </div> 
+        {!showOrderDetails &&
+            <div className='layout-cart__checkout'>
+                <div className='layout-cart__checkout-order-total-tables__total'>
+                    <span className='layout-cart__checkout-order-total-tables__total-name'>
+                        Total 
+                    </span>
+                    <span className='layout-cart__checkout-order-total-tables__total-amount'>
+                        eur
+                    </span>
+                </div>
+                
+                <div className='layout-cart__checkout-order-total-tables__continue-container'> 
+                        <div className='layout-cart__checkout-order-total-tables__continue'
+                            onClick={()=>setShowOrderDetails(true)}
+                        >Send </div>
+                </div>
+            </div> 
+        }
     </>
   )
 }

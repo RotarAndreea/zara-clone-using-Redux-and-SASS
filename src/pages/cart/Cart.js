@@ -14,6 +14,8 @@ const Cart = () => {
     return total+product.price*product.quantity;
   },0) // 0 is for the initial value of "total" variable
 
+
+
   const totalProducts=state.basket?.reduce((total,product)=>{
     return total+product.quantity;
   },0)
@@ -100,7 +102,7 @@ const Cart = () => {
                       Total 
                 </span>
                 <span className='layout-cart__checkout-order-total-tables__total-amount'>
-                      {sum} eur
+                      {sum.toFixed(2)} eur
                 </span>
             </div>
             

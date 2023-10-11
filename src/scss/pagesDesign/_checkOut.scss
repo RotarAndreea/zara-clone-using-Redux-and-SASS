@@ -388,6 +388,31 @@
     #{&}__address-container{
         border-top:1px solid black;
         border-bottom:1px solid black;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+
+        &:hover{
+            background-color: #f3eded;
+        }
+    }
+    #{&}__address-container__close-button{
+        cursor: pointer;
+        user-select: none;
+        position: absolute;
+        top:0;
+        right:8px;
+        padding:2px;
+
+        &:hover{
+            color: #f83333;
+        }
+    }
+    #{&}__address-forum{
+        border-top:1px solid black;
+        border-bottom:1px solid black;
 
     }
     #{&}__add-address{
@@ -402,4 +427,82 @@
 
     }
 
+  }
+
+  .address-form{
+    display: flex;
+    flex-direction: column;
+    padding: $space-xs;
+    padding-bottom: $space-md;
+
+    #{&}__title{
+        margin-top:$space-xs;
+        margin-bottom:$space-xxs;
+    }
+  }
+
+  .order-details{
+    text-transform: initial;
+    font-weight: 400;
+    color: rgba(0,0,0,0.9);
+
+    @include xs{
+        font-size: $font-size-xxs;
+
+    }
+    @include md{
+        font-size: $font-size-xs;
+
+    }
+    @include lg{
+        font-size: $font-size-xs;
+
+    }
+
+    #{&}__title{
+        font-weight: bold;
+        
+        @include xs{
+            margin-bottom: $space-xs;
+        }
+        @include md{
+            margin-bottom: $space-md;
+        }
+        @include lg{
+            margin-bottom: $space-lg;
+        }
+    }
+
+    #{&}__grid-products{
+        display: grid;
+        grid-template-columns: repeat(5, 90px);
+        text-transform:uppercase;
+
+        @include xs{
+            grid-gap:1em 1em;
+            grid-template-columns: repeat(5, 70px);
+            font-size: $font-size-xxxs;
+        }
+        @include md{
+            grid-gap:1em 2em;
+            grid-template-columns: repeat(5, 90px);
+            font-size: $font-size-xs;
+
+        }
+        @include lg{
+            grid-gap:1em 3em;
+        }
+
+    }
+
+    #{&}__grid-products__table{
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+
+    }
+    #{&}__grid-products__product-design{
+        border-top: 1px solid rgb(0, 0, 0);
+        border-bottom: 1px solid black;
+        
+    }
   }

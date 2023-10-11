@@ -7,11 +7,18 @@ export const initialState={
     JSON.parse(localStorage.getItem('basket'))
     :
     [],
+    
     favoriteItems:localStorage.getItem('favoriteItems')
     ?
     JSON.parse(localStorage.getItem('favoriteItems'))
     :
-    []
+    [],
+
+    addressInfo:localStorage.getItem('addressInfo')
+    ?
+    JSON.parse(localStorage.getItem('addressInfo'))
+    :
+    [],
 }
 
 //a reducer is how we are able to dispatch this action(add to basket) into the data layout
@@ -102,6 +109,31 @@ export const reducer=(state, action) =>{
                 return {
                     ...state,
                     favoriteItems:newFavorites
+                }
+        case "ADD_ADDRESS":
+            const newAddress=[ action.item, ...state.addressInfo];
+            localStorage.setItem('addressInfo',JSON.stringify(newAddress))
+
+            return {
+                ...state,
+                addressInfo: [ action.item, ...state.addressInfo] 
+            }
+        case "DELETE_ADDRESS":
+            let addressIndex=state.addressInfo.findIndex( //will find just the first element that has the same id as the other products
+                    (address)=>address.id===action.id
+                )
+                let newAddressArray=[...state.addressInfo];
+                if(addressIndex>=0){
+                    newAddressArray.splice(addressIndex,1);
+                    localStorage.setItem('addressInfo',JSON.stringify(newAddressArray));
+
+                }else
+                {
+                    console.warn(`Can't remove the address (id: ${action.id}) as it is not in the address array!`)
+                }
+                return {
+                    ...state,
+                    addressInfo:newAddressArray
                 }
         default:
             return state;
