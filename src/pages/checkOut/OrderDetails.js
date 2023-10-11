@@ -3,7 +3,9 @@ import React from 'react'
 const OrderDetails = (props) => {
 
     const product=props.formData.productsDetails.map(product=>(
-        <ul className='order-details__grid-products order-details__grid-products__product-design'>
+        <ul className='order-details__grid-products order-details__grid-products__product-design'
+            key={product.key}
+        >
             <li>
                 <img className="checkout-form__media-image"  src={product.image} alt={`${product.title}`} />
             </li>

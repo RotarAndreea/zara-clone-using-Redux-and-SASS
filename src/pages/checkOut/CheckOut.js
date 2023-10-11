@@ -6,7 +6,7 @@ import LateralBox from './LateralBox';
 import OrderDetails from './OrderDetails';
 
 const CheckOut = () => {
-    const [state] =useStateValue() ; 
+    const [state,dispatch] =useStateValue() ; 
     const [deliveryMethod, setDeliveryMethod]=useState('home-delivery');
     const [showLateralBar, setShowLateralBar]=useState(false);
     const [showOrderDetails, setShowOrderDetails]=useState(false);
@@ -56,6 +56,13 @@ const CheckOut = () => {
                 </div>
         </div>
     ))
+
+    function sendOrder(){
+        setShowOrderDetails(true);
+        dispatch({
+            type: 'CLEAN_BASKET'         
+        })
+    }
 
     const onChangeChecked=(event) =>{
         const {name,value}=event.target
@@ -221,7 +228,7 @@ const CheckOut = () => {
                 
                 <div className='layout-cart__checkout-order-total-tables__continue-container'> 
                         <div className='layout-cart__checkout-order-total-tables__continue'
-                            onClick={()=>setShowOrderDetails(true)}
+                            onClick={()=>sendOrder()}
                         >Send </div>
                 </div>
             </div> 

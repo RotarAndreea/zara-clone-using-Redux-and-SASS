@@ -65,6 +65,12 @@ export const reducer=(state, action) =>{
                 ...state,
                 basket:newBasket
             }
+        case "CLEAN_BASKET":
+            localStorage.setItem('basket',JSON.stringify([]));
+            return {
+                ...state,
+                basket:[]
+            }
         case "CHANGE_PRODUCT_QUANTITY":
             const updatedQuantity= state.basket.map((product)=>{
                 return product.id === action.item.id && product.size === action.item.size  ?
