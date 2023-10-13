@@ -77,7 +77,7 @@ const CheckOut = () => {
   return (
     <>
         <div className='layout layout-cart__content'>
-            <header className='layout-header'>
+            <header className='layout-header' style={{backgroundColor:'white'}}>
                 <div className='layout-header-main'>
                     <div className='layout-header__left'>
                         <div className='layout-header__logo-container'>
@@ -206,10 +206,6 @@ const CheckOut = () => {
                         </div>
                     </div>
                 </div>
-                <button onClick={()=>console.log(
-                `delivery: ${deliveryMethod} address:..
-                articles: ${totalProducts} totalSum: ${totalSum}`
-                )}>Confirm order</button>
             </div>
             :
             <OrderDetails formData={formData} actualAddress={actualAddress} deliveryMethod={deliveryMethod}/>
@@ -222,7 +218,7 @@ const CheckOut = () => {
                         Total 
                     </span>
                     <span className='layout-cart__checkout-order-total-tables__total-amount'>
-                        eur
+                       {formData.totalSum} eur
                     </span>
                 </div>
                 
