@@ -52,10 +52,10 @@ const LateralBox = (props) => {
                 :
                 <>
                     <div className='lateral-box__address-forum'>
-                        <AddressForm handleShowForum={()=>setShowPersonalInfoForum}/>
+                        <AddressForm handleShowForum={()=>setShowPersonalInfoForum(false)}/>
                     </div>
                     <div className='lateral-box__add-address'
-                            onClick={()=>setShowPersonalInfoForum(false)}
+                            onClick={()=>setShowPersonalInfoForum()}
                     >
                             close
                     </div>

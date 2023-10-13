@@ -21,7 +21,8 @@ export const AddressForm = (props) => {
             })
       }
 
-      const addAddress=()=>{
+      const addAddress=(event)=>{
+        event.preventDefault();
         //dispatch the item into the data layer
         dispatch({
             type: 'ADD_ADDRESS',
@@ -67,7 +68,7 @@ export const AddressForm = (props) => {
            value={formData.address}
 
         />
-        <button onClick={addAddress}>save address</button>
+        <button onClick={(event)=>addAddress(event)}>save address</button>
     </form>
   )
 }
