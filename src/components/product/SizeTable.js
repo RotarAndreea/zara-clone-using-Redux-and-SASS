@@ -3,7 +3,7 @@ import { useStateValue } from '../../StateProvider';
 
 const SizeTable = ({id, title, image, price, rating, isFavorite,sizes,showSizes, hideSizeTable}) => {
   const [state, dispatch] = useStateValue(); //state will be the array with all the products(equal to {basket})
-
+ 
   const currentSize=sizes.map(size=>(
     <div  
         className='product-size-box' 
@@ -43,7 +43,7 @@ const SizeTable = ({id, title, image, price, rating, isFavorite,sizes,showSizes,
           },
         })
       }
-        
+      hideSizeTable();
   }
     
   

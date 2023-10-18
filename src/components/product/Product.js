@@ -7,15 +7,13 @@ const Product = ({id, title, image, price, rating, stock,isFavorite,quantity,siz
     const [state, dispatch] = useStateValue(); //state will be the array with all the products(equal to {basket})
     const [showSizes, setShowSizes]=useState(false);
     const isProductFavorite=state.favoriteItems.findIndex( //will find just the first element that has the same id as the other products
-(searchedFavoriteItem)=>searchedFavoriteItem.id===id
-)
+            (searchedFavoriteItem)=>searchedFavoriteItem.id===id)
 
     function handleClick(){
         isProductFavorite >=0 ?
             removeFromFavorite()
             :
-            addToFavorite();
-            
+            addToFavorite();   
     }
 
     const addToFavorite=()=>{
@@ -33,7 +31,7 @@ const Product = ({id, title, image, price, rating, stock,isFavorite,quantity,siz
                 quantity:quantity,
                 sizes:sizes
             },
-        })
+        }) 
     }
     const removeFromFavorite=()=>{
         //dispatch the item into the data layer

@@ -7,13 +7,6 @@
     //width: calc((100% - var(--line-width) * (var(--grid-num-columns) - 1)) / var(--grid-num-columns));
     width: 100%;
 
-    @include xs{
-        //margin: $space-xs;
-        
-    }
-    @include sm{
-        //margin: $space-md;
-    }
     #{&}-image-container{
         width:100%;
         display: block;

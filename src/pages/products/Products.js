@@ -4,7 +4,6 @@ import NavigationLayout from '../../components/NavigationLayout'
 import {dress} from '../../DataProducts/WomanProducts/dress/Dress'
 
 const Products = () => {
-
   const product=dress.map(product=>(
     <Product
         key={product.id}
