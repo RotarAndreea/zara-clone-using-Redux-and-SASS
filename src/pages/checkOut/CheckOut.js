@@ -230,10 +230,12 @@ const CheckOut = () => {
                     </span>
                 </div>
                 
-                <div className='layout-cart__checkout-order-total-tables__continue-container'> 
-                        <div className='layout-cart__checkout-order-total-tables__continue'
-                            onClick={()=>sendOrder()}
-                        >Send </div>
+                <div className='layout-cart__checkout-order-total-tables__continue-container'
+                     onClick={()=>sendOrder()}
+                > 
+                    <div className='layout-cart__checkout-order-total-tables__continue'>
+                        Send 
+                    </div>
                 </div>
             </div> 
         }
