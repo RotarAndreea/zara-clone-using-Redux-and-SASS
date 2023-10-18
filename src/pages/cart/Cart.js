@@ -106,9 +106,9 @@ const Cart = () => {
                 </span>
             </div>
             
-            <div className='layout-cart__checkout-order-total-tables__continue-container'> 
-                      <Link className='layout-cart__checkout-order-total-tables__continue' to="/checkout">Continue </Link>
-            </div>
+            <Link className='layout-cart__checkout-order-total-tables__continue-container' to="/checkout">
+              <span className='layout-cart__checkout-order-total-tables__continue'>Continue</span>
+            </Link>
           
           </div>
         }
