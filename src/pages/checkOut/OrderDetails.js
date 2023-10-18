@@ -12,7 +12,7 @@ const OrderDetails = (props) => {
             <li>{product.title}</li>
             <li>{product.size}</li>
             <li>{product.quantity}</li>
-            <li>{product.price} eur</li>
+            <li>{(product.price * product.quantity).toFixed(2)} eur</li>
         </ul>
     ))
   return (

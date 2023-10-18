@@ -18,7 +18,7 @@ const CheckOut = () => {
         return total+product.price*product.quantity;
       },0) // 0 is for the initial value of "total" variable
 
-      const totalProducts=state.basket?.reduce((total,product)=>{
+    const totalProducts=state.basket?.reduce((total,product)=>{
         return total+product.quantity;
       },0)
 
@@ -29,6 +29,14 @@ const CheckOut = () => {
         shippingMethod: 'standard-delivery'
     })
 
+    const finalSum=()=>{
+        if(formData.shippingMethod === 'urgent-delivery')
+            return totalSum+9.99;
+        else if (formData.shippingMethod === 'standard-delivery' && totalSum > 40)
+            return totalSum;
+        else 
+            return totalSum + 4.99;
+    }
 
     function findCurrentAddress(id){ //return the current address as an object
         let currentAddressIndex=addressObject.findIndex( //will find just the first element that has the same id as the other products
@@ -208,7 +216,7 @@ const CheckOut = () => {
                 </div>
             </div>
             :
-            <OrderDetails formData={formData} actualAddress={actualAddress} deliveryMethod={deliveryMethod}/>
+            <OrderDetails formData={formData} actualAddress={actualAddress} deliveryMethod={deliveryMethod} finalSum={()=>finalSum()}/>
             }
         </div> 
         {!showOrderDetails &&
@@ -218,7 +226,7 @@ const CheckOut = () => {
                         Total 
                     </span>
                     <span className='layout-cart__checkout-order-total-tables__total-amount'>
-                       {formData.totalSum} eur
+                       {finalSum().toFixed(2)} eur
                     </span>
                 </div>
                 
