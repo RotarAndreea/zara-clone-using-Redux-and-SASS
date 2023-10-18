@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStateValue } from '../../StateProvider';
 
-const SizeTable = ({id, title, image, price, rating, isFavorite,sizes,showSizes, hideSizeTable}) => {
+const SizeTable = ({id, title, image, price, rating, isFavorite,sizes,showSizes, hideSizeTable, handleShowWarning}) => {
   const [state, dispatch] = useStateValue(); //state will be the array with all the products(equal to {basket})
  
   const currentSize=sizes.map(size=>(
@@ -42,8 +42,20 @@ const SizeTable = ({id, title, image, price, rating, isFavorite,sizes,showSizes,
               totalQuantity:quantity //total quantity for a product depending on the size
           },
         })
+          hideSizeTable();
+          handleShowWarning('Product added to cart');
+          setTimeout(() => {
+              handleShowWarning(false);
+          }, 1000);
       }
-      hideSizeTable();
+      else
+        if(quantityAddedToCart>=quantity){
+          handleShowWarning('Not enought quantity');
+          setTimeout(() => {
+            handleShowWarning(false);
+        }, 1000);
+      }
+      
   }
     
   

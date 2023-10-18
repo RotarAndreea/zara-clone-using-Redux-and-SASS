@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Product from '../../components/product/Product'
 import NavigationLayout from '../../components/NavigationLayout'
 import {dress} from '../../DataProducts/WomanProducts/dress/Dress'
 
 const Products = () => {
+  const [showWarning, setShowWarning]=useState(false);
   const product=dress.map(product=>(
     <Product
         key={product.id}
@@ -14,6 +15,7 @@ const Products = () => {
         stock={product.stock}
         isFavorite={product.isFavorite}
         sizes={product.sizes}
+        handleShowWarning={setShowWarning}
     />
   ))
 
@@ -26,6 +28,11 @@ const Products = () => {
                     {product}
                   </ul>
           </div>
+          {showWarning &&
+            <div className='waringMessage'>
+              {showWarning}
+            </div>
+          }
         </div>
     </>
   )

@@ -3,7 +3,7 @@ import { useStateValue } from '../../StateProvider'
 import SaveButton from './SaveButton';
 import SizeTable from './SizeTable';
 
-const Product = ({id, title, image, price, rating, stock,isFavorite,quantity,sizes}) => {
+const Product = ({id, title, image, price, rating, stock,isFavorite,quantity,sizes, handleShowWarning}) => {
     const [state, dispatch] = useStateValue(); //state will be the array with all the products(equal to {basket})
     const [showSizes, setShowSizes]=useState(false);
     const isProductFavorite=state.favoriteItems.findIndex( //will find just the first element that has the same id as the other products
@@ -63,7 +63,9 @@ const Product = ({id, title, image, price, rating, stock,isFavorite,quantity,siz
                 </button>
                 <SizeTable id={id} title={title} image={image} price={price} rating={rating} stock={stock} isFavorite={isFavorite} quantity={quantity} sizes={sizes}
                            showSizes={showSizes}
-                           hideSizeTable={hideSizeTable}  
+                           hideSizeTable={hideSizeTable}
+                           handleShowWarning={handleShowWarning}  
+
                 />
             </div>
         </div>
