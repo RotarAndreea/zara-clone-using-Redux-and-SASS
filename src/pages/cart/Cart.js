@@ -9,12 +9,11 @@ const Cart = () => {
   const [state]=useStateValue();
   const [showCartItems, setShowCartItems]=useState(true); //toggle between favorite list and cart items
   const whiteBackground=true;
+  const [showWarning, setShowWarning]=useState(false);
 
   const sum=state.basket?.reduce((total,product)=>{
     return total+product.price*product.quantity;
   },0) // 0 is for the initial value of "total" variable
-
-
 
   const totalProducts=state.basket?.reduce((total,product)=>{
     return total+product.quantity;
@@ -32,6 +31,7 @@ const Cart = () => {
         key={product.id}
         id={product.id}
         {...product}
+        handleShowWarning={setShowWarning}
 
     />
   )) 
@@ -73,8 +73,14 @@ const Cart = () => {
                     </div>
                     :
                     <div className='row'>
+                       {showWarning &&
+                        <div className='waringMessage'>
+                          {showWarning}
+                        </div>
+                      }
                       { state.favoriteItems.length !== 0 ? 
                         favoriteProduct
+
                         :
                         <div className='layout-shop__no-items'>You don't have any item saved. </div>
                       }

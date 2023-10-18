@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useStateValue } from '../../StateProvider';
 import SizeTable from '../product/SizeTable';
 
-const FavoriteItem = ({id, title, image, price, rating,stock,isFavorite,quantity,sizes}) => {
+const FavoriteItem = ({id, title, image, price, rating,stock,isFavorite,quantity,sizes,handleShowWarning}) => {
     const [_, dispatch] =useStateValue() ; //eslint-disable-line no-unused-vars
     const [showSizes, setShowSizes]=useState(false);
 
@@ -49,6 +49,7 @@ const FavoriteItem = ({id, title, image, price, rating,stock,isFavorite,quantity
                 <SizeTable id={id} title={title} image={image} price={price} rating={rating} stock={stock} isFavorite={isFavorite} quantity={quantity} sizes={sizes}
                            showSizes={showSizes}
                            hideSizeTable={hideSizeTable}
+                           handleShowWarning={handleShowWarning}
                 />
             </div>
             

@@ -24,9 +24,9 @@ const Products = () => {
         <NavigationLayout />
         <div className='layout-catalog'>
           <div className='layout-catalog-content'>
-                  <ul className='grid-system'>
-                    {product}
-                  </ul>
+                <ul className='grid-system'>
+                  {product}
+                </ul>
           </div>
           {showWarning &&
             <div className='waringMessage'>
