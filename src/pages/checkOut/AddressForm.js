@@ -37,7 +37,9 @@ export const AddressForm = (props) => {
     }
 
   return (
-    <form className='address-form' >
+    <form   className='address-form' 
+            onSubmit={(e)=>addAddress(e)}
+    >
         <label className='address-form__title'>State/Province</label>
         <input
             type="text"
@@ -45,7 +47,8 @@ export const AddressForm = (props) => {
             className='form--input'
             onChange={handleChange}
             name="state" //numele trebuie sa fie ca cel din state
-           value={formData.state} //trebuie sa ii punem valoarea ca cea din state
+            value={formData.state} //trebuie sa ii punem valoarea ca cea din state
+            required
         />
 
         <label className='address-form__title'>City</label>
@@ -55,7 +58,8 @@ export const AddressForm = (props) => {
             className='form--input'
             onChange={handleChange}
             name="city"
-           value={formData.city}
+            value={formData.city}
+            required
 
         />
         <label className='address-form__title'>Address</label>
@@ -63,12 +67,12 @@ export const AddressForm = (props) => {
             type="text"
             placeholder='Address'
             className='form--input'
-           onChange={handleChange}
+            onChange={handleChange}
             name="address"
-           value={formData.address}
-
+            value={formData.address}
+            required
         />
-        <button onClick={(event)=>addAddress(event)}>save address</button>
+        <button type='submit'>save address</button>
     </form>
   )
 }

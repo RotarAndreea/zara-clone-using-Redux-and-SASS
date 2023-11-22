@@ -10,6 +10,7 @@ const CheckOut = () => {
     const [deliveryMethod, setDeliveryMethod]=useState('home-delivery');
     const [showLateralBar, setShowLateralBar]=useState(false);
     const [showOrderDetails, setShowOrderDetails]=useState(false);
+    const [showWarningMessage, setShowWarningMessage]=useState(false);
     const [actualAddressId, setActualAddressId]=useState(state.addressInfo.length >0 ? state.addressInfo[0].id : 0);
     const addressObject=[...state.addressInfo];
     const actualAddress=actualAddressId !==0 && findCurrentAddress(actualAddressId);
@@ -66,10 +67,18 @@ const CheckOut = () => {
     ))
 
     function sendOrder(){
-        setShowOrderDetails(true);
-        dispatch({
-            type: 'CLEAN_BASKET'         
-        })
+        if (actualAddressId !== 0){
+            setShowOrderDetails(true);
+            dispatch({
+                type: 'CLEAN_BASKET'         
+            })
+        }
+        else {
+            setShowWarningMessage(true);
+            setTimeout(() => {
+                setShowWarningMessage(false);
+            }, 2500);
+        }  
     }
 
     const onChangeChecked=(event) =>{
@@ -106,6 +115,7 @@ const CheckOut = () => {
 
             {!showOrderDetails ? 
             <div className='checkout-content layout-checkout-margins_left-right'>
+               {showWarningMessage && <div className='warningMessage'> Please, add an address for delivery. </div>} 
                 <div className='checkout-content-header__info'>Where would you like to receive the order ?</div>
 
                 <div className='checkout-content-delivery-group'>

@@ -29,7 +29,7 @@ const Products = () => {
                 </ul>
           </div>
           {showWarning &&
-            <div className='waringMessage'>
+            <div className='warningMessage'>
               {showWarning}
             </div>
           }
