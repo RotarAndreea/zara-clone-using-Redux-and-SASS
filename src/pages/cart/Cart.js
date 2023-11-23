@@ -74,7 +74,7 @@ const Cart = () => {
                     :
                     <div className='row'>
                        {showWarning &&
-                        <div className='waringMessage'>
+                        <div className='warningMessage'>
                           {showWarning}
                         </div>
                       }
