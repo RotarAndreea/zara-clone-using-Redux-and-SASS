@@ -101,7 +101,7 @@ const Cart = () => {
           </div>
 
         </div>
-        {showCartItems & state.basket.length >0 &&
+        {showCartItems && state.basket.length >0 &&
           <div className='layout-cart__checkout'>
             <div className='layout-cart__checkout-order-total-tables__total'>
                 <span className='layout-cart__checkout-order-total-tables__total-name'>
