@@ -5,9 +5,10 @@
 li{
   list-style-type:none;
 }
-a button{
+a, button {
   color:black;
 }
+
 
 body {
   margin: 0;
