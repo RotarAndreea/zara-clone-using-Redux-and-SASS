@@ -1,0 +1,199 @@
+.reusable-product-container{
+  display: flex;
+  flex:1;
+  font-size: $font-size-sm;
+  text-transform: uppercase;  
+  letter-spacing: 0.8px;
+  font-weight: lighter;
+  overflow: hidden;
+
+  #{&}-grid{
+    width: 100%;
+    height: 100%;
+    //overflow: hidden;
+
+    @include xs{
+        //display: flex;
+        //flex-direction: column;
+        padding: 0;
+    }
+    @include md{
+        grid-template-columns: calc(100%/2) calc(100%/2);
+        display:grid;
+        padding: 50px;
+
+    }
+    @include lg{
+        grid-template-columns: calc(100%/3) calc(100%/3) calc(100%/3);
+        display:grid;
+    }
+  }
+
+  #{&}_image-container{
+    width: 100%;
+    height:100%;
+    background-color: bisque;
+    display: block;
+    position: relative;
+  }
+  #{&}_product-image{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    position:absolute;
+  }
+}
+
+.reusable-product_details-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+
+    @include xs{
+        transform: translateY(-20px);
+        margin-top:calc(-1*118px);
+        height: calc(100% - $layout-header-height-xs);
+    }
+    @include md{
+        margin: 0;
+        height: 100%;
+        transform: none;
+        margin-left: $margin-lg;
+
+    }
+
+    #{&}_sections{
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid black;
+        position:relative;
+        
+        @include xs{
+            width: 100%;
+        }
+        @include md{
+            width: 80%;
+        }
+        @include lg{
+            width: 60%;
+        }
+    }
+    #{&}_section{
+        padding: $space-md;
+
+        @include xs{
+            border: none;
+            order:2;
+        }
+        @include md{
+            border: 1px solid black;
+            border-bottom: none;
+        }
+    }
+    #{&}_button{
+        background-color: white;
+        border:1px solid black;
+        cursor: pointer;
+        padding: 5px;
+
+        &:hover{
+            color:grey;
+        }
+
+        @include xs{
+            order: 1;
+            border-left: none;
+            border-right: none;
+        }
+        @include md{
+            order: 3;
+            border:1px solid black;
+            border-bottom:none;
+
+        }
+    }
+    #{&}_tax-message{
+        color:rgb(153, 153, 153);
+        text-transform:initial;
+        margin:$space-xs 0;
+    }
+
+    #{&}_size-table-grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+
+    #{&}_size-table-cell{
+        border:1px solid black;
+        cursor: pointer;
+        padding: 5px;
+        text-align: center; 
+    }
+}
+
+.display-none__md-width{
+    display: none;
+
+    @include lg{
+        display: block;
+    }
+}
+
+.extra-detail{
+    position:relative;
+
+    #{&}_box{
+        width: 50%;
+        max-height: 40%;
+        overflow-y: hidden;
+        border:1px solid black;
+        position: absolute;
+        bottom: 0;
+        right:$margin-lg;
+        padding: $space-md;
+
+    }
+    #{&}_title{
+        margin-bottom: $space-md;
+
+    }
+    #{&}_long-text{
+        text-transform: initial;
+
+    }
+}
+
+.size-table_container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: absolute;
+    width: 100%;
+    flex:1;
+    height: 100%;
+    background-color: white;
+
+
+    @include md{
+        display: none;
+    }
+}
+
+.hide-under-720px{
+    @include xs{
+        display: none;
+    }
+    @include md{
+        display: block;
+    }
+}
+.hide-over-720px{
+    @include xs{
+        display: block;
+    }
+    @include md{
+        display: none;
+    }
+}

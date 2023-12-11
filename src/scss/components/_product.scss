@@ -160,9 +160,9 @@
 }
 
 .warningMessage{
-    position: absolute;
     top: 50%;
     left: 50%;
+    position:fixed;
     transform: translate(-50%, -50%);
     background-color: white;
     border: 1px solid rgba(59, 47, 47, 0.9);

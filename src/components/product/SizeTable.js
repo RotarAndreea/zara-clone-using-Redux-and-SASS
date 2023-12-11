@@ -7,7 +7,7 @@ const SizeTable = ({id, title, image, price, rating, isFavorite,sizes,showSizes,
   const currentSize=sizes.map(size=>(
     <div  
         className='product-size-box' 
-        onClick={()=>addToBasket(size.size,size.quantity)}
+        onClick={(e)=>addToBasket(e,size.size,size.quantity)}
         style={{color: size.quantity ? 'black' : 'grey',
                 pointerEvents: !size.quantity && 'none'
                 
@@ -19,7 +19,8 @@ const SizeTable = ({id, title, image, price, rating, isFavorite,sizes,showSizes,
 
   ));
 
-  const addToBasket=(size,quantity)=>{ //arguments that will get the values from currentSize
+  const addToBasket=(e,size,quantity)=>{ //arguments that will get the values from currentSize
+      e.preventDefault();
       //dispatch the item into the data layer
       const element=state.basket.find(obj=>obj.key === id+size)//find in the basket the object with the same id as the product clicked
       let quantityAddedToCart=1;
