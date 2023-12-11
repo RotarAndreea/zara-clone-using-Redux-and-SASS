@@ -133,6 +133,7 @@ const ReusableProduct = () => {
                     <SizesTableXS product={product}
                                   handleAddProductFromSizesTableUnderXs={addProductFromSizesTableUnderXs}
                     />
+                    
               }
             </div>
           </div>

@@ -67,7 +67,6 @@
     #{&}_sections{
         display: flex;
         flex-direction: column;
-        border-bottom: 1px solid black;
         position:relative;
         
         @include xs{
@@ -75,6 +74,7 @@
         }
         @include md{
             width: 80%;
+            border-bottom: 1px solid black;
         }
         @include lg{
             width: 60%;
@@ -127,7 +127,6 @@
     }
 
     #{&}_size-table-cell{
-        border:1px solid black;
         cursor: pointer;
         padding: 5px;
         display: flex;
@@ -140,9 +139,12 @@
 
         @include xs{
             font-weight:500;
+            border-right:1px solid black;
+            border-bottom:1px solid black;
         }
         @include md{
             font-weight:400;
+            border:1px solid black;
         }
     }
 }
@@ -180,6 +182,7 @@
 }
 
 .size-table_container{
+    margin: 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     position: absolute;
@@ -187,6 +190,7 @@
     flex:1;
     height: 100%;
     background-color: white;
+    border-bottom:1px solid black;
 
 
     @include md{
