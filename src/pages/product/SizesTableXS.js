@@ -7,6 +7,7 @@ const SizesTableXS = (props) => {
              style={{color: !size.quantity ? 'grey' :  'black', 
                     pointerEvents: !size.quantity && 'none',
                     borderColor: !size.quantity && 'grey',
+                    fontWeight: !size.quantity && 300
                    }}
              key={size.size}
              onClick={()=>props.handleAddProductFromSizesTableUnderXs(size.size)}

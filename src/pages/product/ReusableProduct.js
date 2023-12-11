@@ -19,7 +19,8 @@ const ReusableProduct = () => {
                 pointerEvents: !size.quantity && 'none',
                 borderColor: !size.quantity && 'grey',
                 backgroundColor: selectedSize === size.size && 'black',
-               }}
+                fontWeight: !size.quantity && 300
+              }}
          key={size.size}
          onClick={()=>setSelectedSize(size.size)}
     >{size.size}
@@ -127,7 +128,7 @@ const ReusableProduct = () => {
               <button className='hide-over-720px reusable-product_details-container_button'
                       onClick={()=>setShowSizeTable(true)}
               >ADD</button>
-              
+
               { showSizeTable &&
                     <SizesTableXS product={product}
                                   handleAddProductFromSizesTableUnderXs={addProductFromSizesTableUnderXs}
