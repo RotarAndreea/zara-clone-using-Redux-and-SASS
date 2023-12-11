@@ -130,7 +130,13 @@
         border:1px solid black;
         cursor: pointer;
         padding: 5px;
-        text-align: center; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover{
+            background-color: rgba(59, 47, 47, 0.3);
+        }
 
         @include xs{
             font-weight:500;
